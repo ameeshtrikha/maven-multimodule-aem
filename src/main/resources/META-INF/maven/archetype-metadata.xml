@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<archetype-descriptor name="multi-module" xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd">
+
+    <requiredProperties>
+        <!-- standard properties -->
+        <requiredProperty key="groupId">
+            <defaultValue>net.ameesh.cms.aem.sample</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="artifactId">
+            <defaultValue>aem-sample</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="version">
+            <defaultValue>1.0.0-SNAPSHOT</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="package">
+            <defaultValue>net.ameesh.cms.aem.sample</defaultValue>
+        </requiredProperty>
+        <!-- custom properties -->
+        <requiredProperty key="parentGroupId">
+            <defaultValue>net.ameesh.cms.aem</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="cqDependencyVersion">
+            <defaultValue>5.6.0</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="project-name">
+            <defaultValue>Sample AEM 6.x Project</defaultValue>
+        </requiredProperty>
+        <requiredProperty key="packageGroup">
+            <defaultValue>Sample</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+
+    <fileSets>
+        <fileSet filtered="true" encoding="UTF-8" packaged="false">
+            <directory></directory>
+            <excludes>
+                <exclude>**/*.java</exclude>
+                <!-- don't filter DAM and other image assets or they will get corrupted -->
+                <exclude>**/*.png</exclude>
+                <exclude>**/*.jpeg</exclude>
+                <exclude>**/*.jpg</exclude>
+                <exclude>**/*.gif</exclude>
+                <exclude>**/original</exclude>
+                <exclude>**/*.ico</exclude>
+            </excludes>
+        </fileSet>
+        <fileSet filtered="false" encoding="UTF-8" packaged="false">
+            <directory></directory>
+            <includes>
+                <!-- don't filter DAM and other image assets or they will get corrupted -->
+                <include>**/*.png</include>
+                <include>**/*.jpeg</include>
+                <include>**/*.jpg</include>
+                <include>**/*.gif</include>
+                <include>**/original</include>
+                <include>**/*.ico</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8" packaged="true">
+            <directory>__artifactId__/__artifactId__-commons/__artifactId__-commons-api/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8" packaged="true">
+            <directory>__artifactId__/__artifactId__-commons/__artifactId__-commons-core/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8" packaged="true">
+            <directory>__artifactId__/__artifactId__-services/__artifactId__-services-api/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8" packaged="true">
+            <directory>__artifactId__/__artifactId__-services/__artifactId__-services-core/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8" packaged="true">
+            <directory>__artifactId__/__artifactId__-ui/__artifactId__-ui-core/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8" packaged="true">
+            <directory>__artifactId__/__artifactId__-workflow/__artifactId__-workflow-api/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8" packaged="true">
+            <directory>__artifactId__/__artifactId__-workflow/__artifactId__-workflow-core/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+
+</archetype-descriptor>
